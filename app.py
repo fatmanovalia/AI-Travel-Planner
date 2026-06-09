@@ -5,7 +5,7 @@ import os
 # Load API Key dari .env
 
 
-api_key = st.secrets("GEMINI_API_KEY")
+api_key = st.secrets["GEMINI_API_KEY"]
 st.write("API Key ditemukan:", api_key is not None)
 genai.configure(api_key=api_key)
 
