@@ -105,32 +105,32 @@ if st.button("✨ Generate Travel Plan"):
     10. Tips perjalanan
     """
 
-try:
-    with st.spinner("Membuat itinerary..."):
-        response = model.generate_content(prompt)
+    try:
+        with st.spinner("Membuat itinerary..."):
+            response = model.generate_content(prompt)
 
-    st.success("Travel Plan Berhasil Dibuat!")
+        st.success("Travel Plan Berhasil Dibuat!")
 
-    st.subheader("📋 Detail Perjalanan")
+        st.subheader("📋 Detail Perjalanan")
 
-    st.markdown(f"""
-    - 📍 **Kota Tujuan:** {kota}
-    - 💰 **Budget:** {budget}
-    - 📅 **Durasi:** {durasi} Hari
-    - 🎯 **Jenis Wisata:** {jenis_wisata}
-    - 👨‍👩‍👧‍👦 **Tipe Perjalanan:** {mode_perjalanan}
-    """)
+        st.markdown(f"""
+        - 📍 **Kota Tujuan:** {kota}
+        - 💰 **Budget:** {budget}
+        - 📅 **Durasi:** {durasi} Hari
+        - 🎯 **Jenis Wisata:** {jenis_wisata}
+        - 👨‍👩‍👧‍👦 **Tipe Perjalanan:** {mode_perjalanan}
+        """)
 
-    st.markdown(response.text)
+        st.markdown(response.text)
 
-    st.download_button(
-        label="📥 Download Itinerary",
-        data=response.text,
-        file_name="travel_plan.txt",
-        mime="text/plain"
-    )
+        st.download_button(
+            label="📥 Download Itinerary",
+            data=response.text,
+            file_name="travel_plan.txt",
+            mime="text/plain"
+        )
 
-except Exception as e:
-    st.error(
-        "Server AI sedang sibuk atau kuota sementara tercapai. Silakan tunggu beberapa saat lalu coba lagi."
-    )
+    except Exception as e:
+        st.error(
+            "Layanan AI sementara tidak tersedia. Silakan tunggu beberapa saat lalu coba lagi."
+        )
